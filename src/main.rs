@@ -5,14 +5,15 @@ fn convet_to_int(data_input:& String) -> i32{
      x
 }
 fn main() {
-  let mut number1 = String::new();
-  io::stdin().read_line(&mut number1).expect("Erro ao ler number1");
-  let mut number2: String = String::new();
-  io::stdin().read_line(&mut number2).expect("Erro ao ler number2");
+  let mut sum =0;
+  let mut input_value = String::new();
+  io::stdin().read_line(&mut input_value).expect("Erro ao ler o input de entrada");
+  let mut int_value=convet_to_int(&input_value);
 
-  if convet_to_int(&number1) > convet_to_int(&number2){
-    println!("O numero {} eh maior que {}",number1,number2);
-  }else{
-    println!("O numero {} eh menor ou igual que {}",number1,number2)
+  while int_value!=0{
+    let r = int_value%10;
+    sum=sum+r;
+    int_value=int_value/10;
   }
+  println!("O valor somando é igual {}",sum)
 }
