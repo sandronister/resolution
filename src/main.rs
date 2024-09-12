@@ -1,18 +1,28 @@
 use std::io;
 
-fn convet_to_int(data_input:& String) -> i32{
+fn convert_to_int(data_input:& String) -> i32{
     let x = data_input.trim().parse::<i32>().unwrap();
      x
 }
 fn main() {
-  let mut number1 = String::new();
-  io::stdin().read_line(&mut number1).expect("Erro ao ler number1");
-  let mut number2: String = String::new();
-  io::stdin().read_line(&mut number2).expect("Erro ao ler number2");
+   let mut medias_str = String::new();
+   io::stdin().read_line(&mut medias_str).expect("Failed to read line");
 
-  if convet_to_int(&number1) > convet_to_int(&number2){
-    println!("O numero {} eh maior que {}",number1,number2);
-  }else{
-    println!("O numero {} eh menor ou igual que {}",number1,number2)
-  }
+   let mut sum_rec_i32 = 0;
+   let mut i_32 = 0;
+
+   while convert_to_int(&medias_str) >i_32 {
+        let mut medias_str = String::new();
+        io::stdin().read_line(&mut medias_str).expect("Failed to read line");
+        if convert_to_int(&medias_str)>=3 && convert_to_int(&medias_str)<6{
+            sum_rec_i32 +=1
+            
+        }
+        i_32 += 1;
+   }
+
+
+    println!("Numero de alunos em recuperação {}", sum_rec_i32);
+
+   
 }
