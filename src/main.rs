@@ -4,25 +4,31 @@ fn convert_to_int(data_input:& String) -> i32{
     let x = data_input.trim().parse::<i32>().unwrap();
      x
 }
+
+fn gdc(a: i32, b: i32) -> i32 {
+    if b == 0 {
+        return a;
+    } else {
+        return gdc(b, a % b);
+    }
+}
+
 fn main() {
-   let mut medias_str = String::new();
-   io::stdin().read_line(&mut medias_str).expect("Failed to read line");
+   let mut first_input = String::new();
+    let mut second_input = String::new();
 
-   let mut sum_rec_i32 = 0;
-   let mut i_32 = 0;
+    println!("Enter the first number: ");
+    io::stdin().read_line(&mut first_input).expect("Failed to read line");
 
-   while convert_to_int(&medias_str) >i_32 {
-        let mut medias_str = String::new();
-        io::stdin().read_line(&mut medias_str).expect("Failed to read line");
-        if convert_to_int(&medias_str)>=3 && convert_to_int(&medias_str)<6{
-            sum_rec_i32 +=1
-            
-        }
-        i_32 += 1;
-   }
+    println!("Enter the second number: ");
+    io::stdin().read_line(&mut second_input).expect("Failed to read line");
 
+    let num1 = convert_to_int(&first_input);
+    let num2 = convert_to_int(&second_input);
 
-    println!("Numero de alunos em recuperação {}", sum_rec_i32);
+    let result = gdc(num1, num2);
+
+    println!("The greatest common divisor of {} and {} is {}", num1, num2, result);
 
    
 }
