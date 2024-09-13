@@ -9,11 +9,11 @@ fn convet_to_int(data_input: &String) -> i32 {
 
 fn main() {
    let mut input_str = String::new();
-    io::stdin().read_line(&input_str).expect("Failed to read line");
+    io::stdin().read_line(&mut input_str).expect("Failed to read line");
 
 
     let input_int = convet_to_int(&input_str);
-    let result = 1;
+    let mut result = 1;
     for i in 1..input_int+1 {
         result*=i;
     }
